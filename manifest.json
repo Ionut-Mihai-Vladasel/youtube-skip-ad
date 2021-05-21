@@ -1,6 +1,6 @@
 {
-  "name": "Auto skip",
-  "description": "Skip youtube ad in videos",
+  "name": "Auto skip ad",
+  "description": "Skip ad in youtube videos.",
   "version": "1.0",
   "manifest_version": 3,
   "content_scripts": [
