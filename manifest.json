@@ -1,0 +1,14 @@
+{
+  "name": "Auto skip",
+  "description": "Skip youtube ad in videos",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+   {
+     "run_at" : "document_start",
+     "matches": ["http://www.youtube.com/*","https://www.youtube.com/*"],
+     "js": ["contentScript.js"]
+   }
+ ],
+ "permissions": [ "scripting"]
+}
