@@ -1,7 +1,7 @@
 
 function loop(){
 	try{
-		console.log("in loop");
+		// skipe video ad 
 		var collection = document.getElementsByClassName("ytp-ad-skip-button ytp-button");
 		if(collection != null){
 			var btn =    collection.item(0);
@@ -10,6 +10,7 @@ function loop(){
 			}
 		}
 		
+		// close video banner 
 		var collection = document.getElementsByClassName("ytp-ad-overlay-close-button");
 		if(collection != null){
 			var btn =    collection.item(0);
