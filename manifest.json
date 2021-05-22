@@ -1,7 +1,7 @@
 {
   "name": "Auto skip ad",
   "description": "Skip ad in youtube videos.",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 3,
   "content_scripts": [
    {
@@ -10,5 +10,13 @@
      "js": ["contentScript.js"]
    }
  ],
- "permissions": [ "scripting"]
+ "permissions": [ "scripting"],
+ "host_permissions": [
+	 "http://www.youtube.com/*",
+	 "https://www.youtube.com/*"
+	],
+ "icons": { "35": "imgs/origin_2_35.png",
+            "200":"imgs/origin_2.png" 
+		  }
+		  
 }
