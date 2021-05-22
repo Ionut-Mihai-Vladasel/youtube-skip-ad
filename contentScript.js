@@ -1,6 +1,6 @@
 
 function loop(){
-	while(true){
+	
 		try{
 			// skipe video ad 
 			var collection = document.getElementsByClassName("ytp-ad-skip-button ytp-button");
@@ -19,10 +19,11 @@ function loop(){
 					btn.click();
 				}
 			}
+			loop();
 		}catch(e){
 			console.log(e);
 		}
-	}
+	
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
