@@ -2,6 +2,7 @@
 
 function findAndSkipAd(){
 	try{
+		console.log("tring to skip ads..");
 		// video without button 
 		let videoCollection = document.getElementsByClassName("video-stream html5-main-video");
 		if(videoCollection && videoCollection.item(0)){
@@ -33,12 +34,15 @@ function findAndSkipAd(){
 					console.log("Banner closed");
 			}
 		}
+		
 	}catch(e){
 		console.log(e);
 	}
+		
 }
 
 function setup(){
+
 	let collection = document.getElementsByClassName("video-stream html5-main-video");
 	if(collection && collection.item(0)){
 		var videoTag = collection.item(0);
@@ -52,7 +56,11 @@ function setup(){
  
 
 window.addEventListener('DOMContentLoaded', (event) => { 
-	setup();
+		if(document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded',setup);
+		} else {
+			setup();
+		}
 })
 
-setup();
+ 
