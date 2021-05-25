@@ -41,26 +41,44 @@ function findAndSkipAd(){
 		
 }
 
+var setupDone = false;
+
 function setup(){
 
 	let collection = document.getElementsByClassName("video-stream html5-main-video");
+	console.log("collection: " + JSON.stringify(collection));
 	if(collection && collection.item(0)){
 		var videoTag = collection.item(0);
-			videoTag.addEventListener('canplay', (event) => {
-				 setTimeout(findAndSkipAd, 1000); 
-				 setTimeout(findAndSkipAd, 2000); 			
-				}); 
+		videoTag.addEventListener('canplay', (event) => {
+			 setTimeout(findAndSkipAd, 1000); 
+			 setTimeout(findAndSkipAd, 2000); 			
+			}); 
+	    console.log("setup done");
+		setupDone = true;
 	}
-	console.log("setup done");
+	console.log("setup: " +setupDone);
 }
  
-
-window.addEventListener('DOMContentLoaded', (event) => { 
-		if(document.readyState === 'loading') {
-			document.addEventListener('DOMContentLoaded',setup);
-		} else {
+document.addEventListener('DOMContentLoaded', (event) => { 
+ 	
+		switch (document.readyState) {
+		  case "loading":
+			console.log("The document is still loading.");
+			break;
+		  case "interactive":
+			console.log("The document has finished loading. We can now access the DOM elements.");
+			setTimeout(setup,500);
+			break;
+		  case "complete":
+			console.log("The page is fully loaded."); 
 			setup();
+			break;
 		}
 })
 
  
+ document.addEventListener("mousedown", (event) => {
+	 if(!setupDone){
+		 setup();
+	 }
+ });
